@@ -11,7 +11,7 @@ before:
     # Even though, this an optional step.
     #- go test ./...
     # Check plugin compatibility with required version of the Packer SDK
-    # - make plugin-check
+    #- make plugin-check
     # Copy LICENSE file for inclusion in zip archive
     - cp LICENSE LICENSE.txt
 builds:
@@ -88,11 +88,6 @@ archives:
 checksum:
   name_template: '{{ .ProjectName }}_v{{ .Version }}_SHA256SUMS'
   algorithm: sha256
-signs:
-  - cmd: signore
-    args: ["sign", "--dearmor", "--file", "${artifact}", "--out", "${signature}"]
-    artifacts: checksum
-    signature: ${artifact}.sig
 
 changelog:
   use: github-native
