@@ -69,3 +69,11 @@ documentation located in the [`docs/`](docs) directory.
   fix a bug, please do so by opening a Pull Request in this GitHub repository.
   In case of feature contribution, we kindly ask you to open an issue to
   discuss it beforehand.
+
+# Manual build:
+You need to create fine grade token that should have content, artifacts write permissions.
+```
+git tag <example_tag>
+export GITHUB_TOKEN=$(cat <TOKEN_FILE>)
+goreleaser release --clean
+```
